@@ -4,8 +4,94 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    
+    <main class="formi" role="main">
+        <h2>Shipping Cost Calculator</h2>
+        <p class="headerp">Please Enter details below and click <strong>Calculate</strong></details></p>
+        <form id="calcForm">
+        <div class="table">
+          <!--Weight-->
+          <div class="table-div1">
+             <div>
+               <label for="weight">Weight (Kg)</label>
+               <input type="number" id="weight" min="0" step="0.1" value="7"> 
+             </div>
+          <!--Destination Option-->
+             <div class="Destination-div">
+               <label for="zone">Destination</label>
+               <select name="zone" id="zone">
+               <option type="Ibadan">Ibadan</option>
+               <option value="Lagos">Lagos</option>
+               <option value="Abeokuta">Abeokuta</option>
+               <option value="Other">Other</option>
+               </select>
+             </div>
+          </div>
+          <!--Cost-->
+            <div>
+              <label for="baseCost">Base Cost (N)</label>
+              <input type="number" id="baseCost" min="0" step="20" value="2000" />
+            </div>
+            <div class="div-style-iput1">
+                <input type="checkbox" id="expressDelivery">                    
+                <label for="expressDelivery" class="muted">Add 50% surcharge</label>
+            </div>
+            <div class="full">
+              <label for="">Destination fees </label>
+              <div class="div-style-input2">
+              <input type="number" id="feeIbadan" value="5000" min="0" step="20" style="flex:1;" />
+              <input type="number" id="feeLagos" value="3000" min="0" step="20" style="flex:1;" />
+              <input type="number" id="feeAbeokuta" value="2000" min="0" step="20" style="flex:1;" />
+              </div>
+            </div>
+            <div>
+             <small class="smallNote">Boxes above are fees for Ibadan, Lagos, and Abeokuta respectively</small>
+            </div>
+        </div>
+        <!--Controls-->
+        <div class="controls">
+            <button id="calbtn">Calculate</button>
+            <button id="resetbtn" type="button" class="secondarybtn">Reset</button>
+            <div style="margin-left: auto;" class="muted">Example output will appear below.</div>
+        </div>
+        <div id="result1" class="result1">Fill the form and click<strong>Calculate</strong>.
+        </div>
+        </form>
+        <h3 id="result"></h3>
+    </main>
+    <script>
+            document.getElementById('calbtn').onclick = function(event){
+              event.preventDefault();
+              let weight = parseFloat(document.getElementById("weight"). value);                      
+              let destinationZone = 
+              document.getElementById("zone"). value;
+              let isExpressDelivery = 
+              document.getElementById("expressDelivery").checked;
+              //Cost
+              let baseCost = 2000
+              if (destinationZone === "Ibadan"){
+                baseCost += 5000;
+              }else if (destinationZone === "Lagos"){
+                baseCost += 1000;
+              }else if (destinationZone === "Abeokuta"){
+                baseCost += 3000
+              }
+              //Excess Weight 
+              if (weight > 5){
+                baseCost += 1500;
+              }
+              // Express Surcharge
+              if (isExpressDelivery){
+                baseCost *= 1.5
+              }
+              //result
+              document.getElementById("result1").innerHTML = 
+              `The total shipping cost for your ${weight}Kg package to Zone ${destinationZone} is <strong>N${baseCost}</strong>.`;
+            };
+
+        
+    </script>
 </body>
 </html>

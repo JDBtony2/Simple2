@@ -1,0 +1,113 @@
+:root{--bg:rgb(243, 218, 172); --maker:rgb(167, 223, 246); --formi: rgb(245, 200, 200); --muted: rgb(237, 100, 237);
+body{
+ font-family: Verdana, Geneva, Tahoma, sans-serif;
+ background: var(--bg);
+ margin: 0;
+ display: flex;
+ align-items: center;
+ justify-content: center;
+ height: 100vh;
+ padding: 30px;
+}
+.formi{
+    background: var(--formi);
+    border: 15px;
+    box-shadow: 0 10px 30px rgb(208, 237, 148);
+    max-width: 680px;
+    width: 100%;
+    padding: 30px;
+}
+h2{
+    margin: 0 0 30px;                     
+    font-size: 1.2rem;
+    display: block;
+    margin-left: 200px;
+    
+}
+p.headerp{
+    margin: 0 0 20px;
+    font-size: 0.8rem;
+    color: black;
+}
+.table{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+}
+/*.table-div1{
+    display: flex;
+    gap: 10px;
+}*/
+label{
+    display: block;
+    font-size: 1rem;
+    margin-bottom: 8px;
+    color: blue;
+}
+input[type=number], select{
+    width: 100%;
+    padding: 10px;
+    border: 1px solid blueviolet;
+    border-radius: 8px;
+    font-size: 1rem;
+}
+.div-style-iput1{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.full{
+    grid-column: 1/-1;
+}
+.div-style-input2{
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+.controls{
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    margin-top: 15px;
+}
+button{
+    background: var(--maker);
+    color: white;
+    border: 3px;
+    padding: 12px 16px;
+    border-radius: 15px;
+    font-weight: 500;
+    cursor: pointer;
+}
+button:active{transform: translateY(2px);}
+.secondary{
+    background: #eef2f2;
+    color: blueviolet;
+}
+.result1{
+    margin-top: 20px;
+    padding: 15px;
+    border-radius: 15px;
+    background: #c2deec;
+    border: 2px dashed rgb(252, 185, 185);
+}
+.muted{
+    color: var(--muted);
+    font-size: 15px;
+}
+.row-result{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+small.note{
+    display: block;
+    margin-top: 10px;
+    color: var(--muted);
+}
+@media(max-wdth: 640px){
+    .table{
+        grid-template-columns: 1fr;
+    }
+}
+
